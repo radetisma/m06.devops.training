@@ -12,25 +12,18 @@ auto_cancel:
     when: branch != 'main'
   queued:
     when: branch = 'main'
+global_job_config:
+  prologue:
+    commands:
+      - checkout
 blocks:
-  - name: "\U0001F9EA Test"
+  - name: Teraform Init
     dependencies: []
     task:
       jobs:
-        - name: "\U0001F7E2 Run Tests"
+        - name: Init
           commands:
-            - echo "Checking out code..."
-            - echo "Installing dependencies..."
-            - echo "Running test suite..."
-            - echo "Tests completed successfully!"
-  - name: "\U0001F680 Deploy"
-    dependencies:
-      - "\U0001F9EA Test"
-    task:
-      jobs:
-        - name: "\U0001F4E6 Deploy to Production"
-          commands:
-            - echo "Building application..."
-            - echo "Running security checks..."
-            - echo "Deploying to production..."
-            - echo "Deployment completed successfully!"
+            - cd 1-terraform-apply
+            - terraform init
+      secrets:
+        - name: localstack
