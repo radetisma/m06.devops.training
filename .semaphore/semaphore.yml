@@ -69,3 +69,5 @@ blocks:
         - name: Service up
           commands:
             - 'docker run -d -p 4566:4566 localstack/localstack'
+      secrets:
+        - name: localstack
