@@ -70,7 +70,7 @@ blocks:
             - cd 1-terraform-apply
             - artifact pull workflow .terraform
             - artifact pull workflow .terraform.lock.hcl
-            - artifact --force pull workflow terraform.tfstate
+            - artifact pull workflow terraform.tfstate --force
             - terraform destroy
       secrets:
         - name: localstack
