@@ -49,6 +49,7 @@ blocks:
   - name: Use Bucket
     dependencies:
       - Deploy
+      - Local service
     task:
       secrets:
         - name: localstack
@@ -60,3 +61,11 @@ blocks:
             - 'aws s3 cp README.md s3://group2-bucket/'
             - 'aws s3 ls s3://group2-bucket'
             - 'aws s3 rm s3://group2-bucket/README.md'
+  - name: Local service
+    dependencies:
+      - Deploy
+    task:
+      jobs:
+        - name: Service up
+          commands:
+            - 'docker run -d -p 4566:4566 localstack/localstack'
