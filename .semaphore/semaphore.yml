@@ -27,10 +27,6 @@ blocks:
             - terraform init
             - artifact push workflow .terraform
             - artifact push workflow .terraform.lock.hcl
-            - 'alias aws="aws --endpoint-url=http://devops.tomfern.com:31566"'
-            - 'aws s3 cp README.md s3://group2-bucket/`'
-            - 'aws s3 ls s3://group2-bucket'
-            - 'aws s3 rm s3://group2-bucket/README.md'
       secrets:
         - name: localstack
   - name: Deploy
