@@ -42,3 +42,5 @@ blocks:
             - 'terraform validate  '
             - terraform apply -auto-approve
             - artifact push workflow terraform.tfstate
+      secrets:
+        - name: localstack
