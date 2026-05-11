@@ -39,8 +39,8 @@ blocks:
             - cd 1-terraform-apply
             - 'artifact pull workflow .terraform  '
             - artifact pull workflow .terraform.lock.hcl
-            - chmod +x artifacts/workflows/*/.terraform
-            - chmod +x artifacts/workflows/*/.terraform.lock.hcl
+            - chmod -R +x .terraform
+            - '#chmod +x artifacts/workflows/*/.terraform.lock.hcl'
             - 'terraform validate  '
             - terraform apply -auto-approve
             - artifact push workflow terraform.tfstate
