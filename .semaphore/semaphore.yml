@@ -57,6 +57,6 @@ blocks:
           commands:
             - cd 1-terraform-apply
             - 'alias aws="aws --endpoint-url=http://devops.tomfern.com:31566"'
-            - 'aws s3 cp README.md s3://group2-bucket/`'
+            - 'aws s3 cp README.md s3://group2-bucket/'
             - 'aws s3 ls s3://group2-bucket'
             - 'aws s3 rm s3://group2-bucket/README.md'
