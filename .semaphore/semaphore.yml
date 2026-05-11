@@ -70,5 +70,5 @@ blocks:
             - cd 1-terraform-apply
             - artifact pull workflow .terraform
             - artifact pull workflow .terraform.lock.hcl
-            - artifact pull workflow terraform.tfstate
+            - artifact --force pull workflow terraform.tfstate
             - terraform destroy
