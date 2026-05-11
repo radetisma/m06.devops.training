@@ -29,3 +29,15 @@ blocks:
             - artifact push workflow .terraform.lock.hcl
       secrets:
         - name: localstack
+  - name: Deploy
+    dependencies:
+      - Teraform Init
+    task:
+      jobs:
+        - name: Fetch
+          commands:
+            - 'artifact pull workflow .terraform  '
+            - artifact pull workflow .terraform.lock.hcl
+            - 'terraform validate  '
+            - terraform apply -auto-approve
+            - artifact push workflow terraform.tfstate
