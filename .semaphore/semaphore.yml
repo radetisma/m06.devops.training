@@ -36,6 +36,7 @@ blocks:
       jobs:
         - name: Fetch
           commands:
+            - cd 1-terraform-apply
             - 'artifact pull workflow .terraform  '
             - artifact pull workflow .terraform.lock.hcl
             - 'terraform validate  '
