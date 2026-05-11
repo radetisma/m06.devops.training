@@ -71,7 +71,7 @@ blocks:
             - artifact pull workflow .terraform
             - artifact pull workflow .terraform.lock.hcl
             - artifact pull workflow terraform.tfstate --force
-            - chmod -R +x terraform
+            - chmod -R +x .terraform
             - terraform destroy
       secrets:
         - name: localstack
